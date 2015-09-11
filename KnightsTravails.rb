@@ -46,15 +46,26 @@ def find_ending_tile(endpoint, startpoint)
 end
 
 def find_route(root_arr, search_arr)
+  # Set the final tiles position with x,y coordinates to "endpoint"
   endpoint   = Tile.new(search_arr[0], search_arr[1])
+  # Set the starting tiles position with x,y coordinates to "startpoint"
   startpoint = Tile.new(root_arr[0], root_arr[1])
+  # Run the "find_ending_tile" method in order to find the route to the 
+  # endpoint via children generation.
   result = find_ending_tile(endpoint, startpoint)
   
   route = []
+  # Place the final tiles position with x,y coordinates into route[0] and [1]
+  # respectively.
   route.unshift([endpoint.x, endpoint.y])
+  # Create a variable called "current" that is effectively the parent node
   current = result.parent
+  # Loop through until the parent node, i.e. "current" is nil which means 
+  # it has reached the termination of the route.
   until current.nil?
+    # Add the path to the route array at the front via .unshift method
     route.unshift [current.x, current.y]
+    # Reset the current variable so that it is again the parent
     current = current.parent
   end
   puts "You made it in #{route.length - 1} moves.  Here is your path: "
