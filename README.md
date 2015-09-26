@@ -14,7 +14,7 @@ to whatever amounts you desire, while not picking a value that does not
 lie on the board, i.e. within the range value of 0,0 to 7,7.  
 
 ###Run
-In the command line run ruby KnightsTravails.rb and the shortest route
+In the command line run "ruby KnightsTravails.rb" and the shortest route
 to your desired ending square will be output in x,y coordinates along with
 the require amount of steps necessary.
 
